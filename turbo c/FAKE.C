@@ -1,0 +1,14 @@
+struct node
+{
+	int i;
+	void fun()
+	{
+		printf("Hi");
+	}
+};
+void main()
+{
+	struct node n;
+	n.fun();
+	getch();
+}

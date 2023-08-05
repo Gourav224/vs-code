@@ -1,0 +1,16 @@
+int fun()
+{
+	static int i=0;
+	printf("\n %d ",i);
+	i++;
+
+}
+void main()
+{
+	clrscr();
+	fun();
+	fun();
+	fun();
+	fun();
+	getch();
+}

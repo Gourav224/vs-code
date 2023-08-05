@@ -1,0 +1,47 @@
+#include<stdlib.h>
+#define n 5
+void insert(int *a)
+{
+	int i;
+	randomize();
+	for(i=0;i<n;i++)
+	{
+		a[i]=random(9);
+		printf("%d ",a[i]);
+	}
+}
+void swap(int *a,int i,int j)
+{
+	int temp;
+	temp=a[i];
+	a[i]=a[j];
+	a[j]=temp;
+}
+void main()
+{
+	int t,a[n],i,j,min,max;
+	clrscr();
+	insert(a);
+	for(i=0;i<=n/2;i++)
+	{
+		min=max=i;
+		for(j=i+1;j<n;j++)
+		{	if(a[j]<a[min])
+			{	min=j;
+			}
+			if(a[j]>a[max])
+				max=j;
+		}
+		if(min!=i)
+			swap(a,i,min);
+		if(max != n-i)
+		swap(a,n-i,max);
+	       /*	if(min!=max)
+			swap(a,n-i,max);*/
+	}
+	printf("\nSorted Array is: \n");
+	for(i=0;i<n;i++)
+		printf("\t%d",a[i]);
+	getch();
+
+}

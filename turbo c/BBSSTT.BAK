@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+    int data;
+    struct node *left, *right;
+};
+struct node *newnode;
+// struct node *insert(struct node *root, int data){
+//     if(root==0){
+//         newnode=(struct node *)malloc(sizeof(struct node));
+//         newnode->data=data;
+//         newnode->left=0;
+//         newnode->right=0;
+//         return newnode;
+//     }
+//     else if(data < root->data)
+//         root->left=insert(root->left,data);
+//     else
+//         root->right=insert(root->right,data);
+//     return root;
+// }
+struct node *newnode,*leftmost;
+struct node * insert(struct node *root,int val)
+{
+	if(root==0)
+	{
+		newnode=(struct node*)malloc(sizeof(struct node));
+		newnode->left=0;
+		newnode->right=0;
+		newnode->data=val;
+		return newnode;
+	}
+	else if(root->data>val)
+	{
+		root->left=insert(root->left,val);
+	}
+	else
+		root->right=insert(root->right,val);
+	return root;
+}
+void inorder(struct node *root){
+    if(root){
+    inorder(root->left);
+    printf("%d ",root->data);
+    inorder(root->right);
+    }
+}
+void main(){
+    struct node *root=0;
+    int i,a[]={6,5,4,8,7,9,1,3,2};
+    for(i=0;i<9;i++){
+        root=insert(root,a[i]);
+    }
+    printf("\nRoot is : %d\n",root->data);
+    printf("\nInorder of Tree is : \n");
+    inorder(root);
+
+}

@@ -1,0 +1,28 @@
+#include<alloc.h>
+struct node
+{
+	int data;
+	struct node *left,*right;
+};
+struct node *root=0,*newnode;
+int idx=-1;
+struct node *buildtree(int *nodes)
+{
+	idx++;
+	if(nodes[idx]==-1)
+		return 0;
+	newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=nodes[idx];
+	newnode->left=buildtree(nodes);
+	newnode->right=buildtree(nodes);
+
+	return newnode;
+}
+void main()
+{
+	int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+	clrscr();
+	root=buildtree(nodes);
+	printf("Root = %d",root->data);
+	getch();
+}

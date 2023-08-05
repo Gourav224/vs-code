@@ -1,0 +1,92 @@
+
+
+// count the digits in a number....
+
+#include<math.h>
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	int j,i,f=1;
+	//clrscr();
+	for(j=2;j<=250;j++)
+	{
+		f=1;
+		for(i=2;i<=j/2;i++)
+		{
+			if(j%i==0)
+			{
+				f=0;
+				break;
+			}
+		}
+
+		if(f==1)
+			printf("%d\t",j);
+
+	}
+
+	getch();
+}
+
+
+
+
+/*
+void main()
+{
+	int i,n,t,r,rev,c;
+	clrscr();
+	//printf("Enter a number: ");
+	//scanf("%d",&n);
+	for(i=1;i<=32766;i++)
+	{
+		t=i;
+		c=0;
+		while(t!=0)
+		{
+			t=t/10;
+			c++;
+		}
+
+		t=i;
+		rev=0;
+
+		while(t!=0)
+		{
+			r=t%10;
+			rev=rev+ pow(r,c);
+			t=t/10;
+			//c++;
+		}
+		if(rev==i)
+			printf("%d\t",i);
+	}
+	getch();
+}
+
+
+
+*/
+
+
+
+/*
+void main()
+{
+	int i,j,n,t;
+	clrscr();
+	printf("Enter number of lines in pattern: ");
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+	{
+		 t=i;
+		 while(t!=0)
+		 {
+
+		 }
+	}
+	getch();
+}
+*/

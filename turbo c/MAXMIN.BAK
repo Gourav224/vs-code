@@ -1,0 +1,43 @@
+
+
+#include<stdlib.h>
+#define r 3
+#define c 3
+
+void main()
+
+{
+	int a[r][c],m,i,j,t;
+	clrscr();
+	printf("Matrix A is : \n");
+	randomize();
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			a[i][j]=random(20)-10;
+			printf("%d ",a[i][j]);
+		 }
+		 printf("\n");
+	}
+	m=a[0][0];
+	 for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			if(a[i][j]>m)
+			m=a[i][j];
+			else  if(a[i][j]<t)
+			t=a[i][j];
+		 }
+	 }
+
+	 printf(" Minimum number is %d",t);
+	 printf("\nMaximum number is %d",m);
+
+
+	getch();
+
+}
+
+

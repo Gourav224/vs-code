@@ -1,0 +1,48 @@
+void swap(int *a, int i, int j)
+{
+	int t;
+	t=a[i];
+	a[i]=a[j];
+	a[j]=t;
+}
+int part(int *a,int lb, int ub)
+{
+	int pivot,s,e;
+	pivot=a[lb];
+	s=lb;
+	e=ub;
+	while(s<e)
+	{
+		while(a[s]<=pivot)
+		{	s++;
+			//printf("%d s,",s);
+		}
+		while(a[e]>pivot)
+			e--;
+		if(s<e)
+			swap(a,s,e);
+	}
+	swap(a,lb,e);
+	return e;
+}
+void quick(int *a,int lb, int ub)
+{
+	int loc=0;
+	if(lb<ub)
+	{
+		loc=part(a,lb,ub);
+		quick(a,lb,loc-1);
+		quick(a,loc+1,ub);
+	}
+}
+void main()
+{
+	int i,a[]={11,20,1,3,4,12,14}/*{4,5,7,3,4,7,8,2,55,7,8,9,9,4,3,2,3,4,1}*/,lb,ub,n=7;
+	clrscr();
+	lb=0;
+	ub=n-1;
+	quick(a,lb,ub);
+	for(i=0;i<n;i++)
+		printf("\t%d",a[i]);
+	getch();
+}

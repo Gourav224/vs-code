@@ -1,0 +1,8 @@
+void main()
+{
+	int a=10,b;
+	clrscr();
+
+	printf("a = %d, b = %d",a,b);
+	getch();
+}

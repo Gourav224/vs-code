@@ -1,0 +1,21 @@
+void main()
+{
+	char fname[40],lname[40];
+	int i;
+	clrscr();
+	printf("Enter first name : ");
+	gets(fname);
+	printf("Enter last name : ");
+	gets(lname);
+	//length
+	i=strlen(fname);
+	//string copy
+	//strcpy(fname,lname);
+
+	//string concatenation
+	strcat(fname,lname);
+	puts(fname);
+
+	printf("Number of characters in first name: %d",i);
+	getch();
+}

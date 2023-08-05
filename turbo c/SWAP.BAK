@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	      int a=10,b=30,c;
+	      clrscr();
+	      c=a;
+	      a=b;
+	      b=c;
+	      printf("a=%d,b=%d",a,b);
+	      getch();
+	      }

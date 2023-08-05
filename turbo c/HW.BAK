@@ -1,0 +1,32 @@
+void main()
+{
+	int i,n,r,s=0,j,f=0;
+	clrscr();
+	printf("palindromic prime no. between 100 and 1000\n");
+	for(i=100;i<=1000;i++)
+	{
+		s=0;
+		n=i;
+		while(n!=0)
+		{
+			r=n%10;
+			s=s*10+r;
+			n=n/10;
+		}
+		if(i==s)
+		{
+			f=0;
+			for(j=2;j<=i/2;j++)
+			{
+				if(i%j==0)
+				{
+					f=1;
+					break;
+				}
+			}
+			if(f==0)
+				printf("%d ",i);
+		}
+	}
+	getch();
+}

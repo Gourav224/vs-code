@@ -1,0 +1,83 @@
+#include<stdio.h>
+void main()
+{
+	FILE *fp;
+	char ch;
+	char s[40];
+	clrscr();
+	fp=fopen("cm.txt","r+");
+	if(fp==NULL)
+	{
+		printf("Error occured");
+		exit(1);
+	}
+	fputs("CM",fp);
+	fputc('c',fp);
+
+	fclose(fp);
+}
+/*
+void main()
+{
+	FILE *fp;
+	char ch;
+	char s[40];
+	clrscr();
+	fp=fopen("cm.txt","r+");
+	if(fp==NULL)
+	{
+		printf("Error occured");
+		exit(1);
+	}
+	fputs("CM",fp);
+	fputc('c',fp);
+
+	fclose(fp);
+}
+*/
+/*
+void main()
+{
+	FILE *fp;
+	char str[50],ch='y';
+	clrscr();
+	printf("Enter paragraph");
+	fp=fopen("CM.txt","w");
+	//fputs(gets(str),fp);
+	//fprintf(fp,"hi %d",90);
+	//fputc(ch,fp);
+	fclose(fp);
+	getch();
+
+} */
+/*
+void main()
+{
+	FILE *fp;
+	char ch,str[50];
+	int i=1;
+	clrscr();
+	fp=fopen("cm.txt","r");
+	if(fp==NULL)
+	{
+		printf("Error.");
+		exit(0);
+	}
+
+	while(!feof(fp))
+	{
+		fgets(str,15,fp);
+		puts(str);
+	}
+
+	while(!feof(fp))
+	{
+	       //	ch=fgetc(fp);
+	       //	printf("%c",ch);
+	}
+
+
+
+	getch();
+}
+ */

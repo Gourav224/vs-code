@@ -1,0 +1,27 @@
+void main()
+{
+	long a=456791,t ;
+	int s=0,ts=0,r;
+	clrscr();
+	printf("%ld",a);
+	t=a;
+	while(a!=0)
+	{
+
+		s=s+a%10;
+		ts=s;
+		if(s>10)
+		{
+
+			s=0;
+			s=ts-9;
+
+					/* s=s+ts%10;
+					ts/=10;
+					s=s+ts;    */
+		}
+		a/=10;
+	}
+	printf("\n%d ",s);
+	getch();
+}

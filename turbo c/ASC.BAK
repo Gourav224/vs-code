@@ -1,0 +1,11 @@
+void main()
+{
+	int i=33;
+	clrscr();
+	while(i<=255)
+	{
+		printf("\t%d = %c,",i,i);
+		i++;
+	}
+	getch();
+}

@@ -1,0 +1,22 @@
+int fact(int n)
+{
+	int f=0;
+	if(n==1)
+	return(1);
+	else
+	{
+	  while(n>1)
+	  f=f+n*fact(n-1);
+	  return(f);
+	}
+}
+void main()
+{
+	int n,f;
+	clrscr();
+	printf("Enter the number : ");
+	scanf("%d",&n);
+	f=fact(n);
+	printf("Factorial of %d is %d",n,f);
+	getch();
+}

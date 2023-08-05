@@ -1,0 +1,26 @@
+#include<string.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+	int i,*a,*c;
+	char *b;
+	//clrscr();
+	do
+	{       i=1;
+		printf("Enter ");
+		randomize();
+		*a=random(10)+48;
+		*c=random(26)+65;
+		strcat(a,c);
+		puts(a);
+		gets(b);
+		if(!strcmp(a,b))
+		{
+			i=0;
+			printf("Yes");
+		}
+	}while(i);
+	getch();
+}

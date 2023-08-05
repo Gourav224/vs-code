@@ -1,0 +1,1 @@
+#define notmain main

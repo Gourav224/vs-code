@@ -1,0 +1,4 @@
+#define is ==
+#define begin {
+#define end }
+#define None 0

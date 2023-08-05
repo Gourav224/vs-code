@@ -1,0 +1,40 @@
+#include<stdlib.h>
+#define r 3
+#define c 3
+void main()
+{
+	int a[r][c],i,j,b[r][c];
+	clrscr();
+	randomize();
+	printf("Matrix A is : \n");
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			a[i][j]=random(9)+1;
+			printf("%d ",a[i][j]);
+		}
+	   printf("\n");
+
+	}
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+			b[j][i]=a[i][j];
+
+		 }
+	}
+	printf("Tranpose of matrices : \n");
+	for(i=0;i<r;i++)
+	{
+		for(j=0;j<c;j++)
+		{
+		 printf("%d ",b[i][j]);
+		}
+	   printf("\n");
+	}
+
+	getch();
+
+  }

@@ -1,0 +1,59 @@
+#include<stdlib.h>
+#include<stdio.h>
+struct node 
+{
+    int data;
+    struct node *next;
+};
+
+void show_graph(struct node *adj[], int no_of_nodes)
+{
+f    struct node *ptr=0;
+    int i,j;
+    for(i=0;i<no_of_nodes;i++)
+    {
+	ptr=adj[i];
+	printf("\nThe neighbour of %d are : ",i+1);
+	while(ptr!=0)
+	{
+	    printf("%d\t",ptr->data);
+	    ptr=ptr->next;
+	}
+    }
+}
+void read_graph(struct node *adj[], int no_of_nodes)
+{
+    struct node *newnode;
+    int i,j,nn,val;
+    for(i=0;i<no_of_nodes;i++)
+    {
+	struct node *last=0;
+	printf("\nEnter the number of neighbour %d",i+1);
+	scanf("%d",&nn);
+	for(j=0;j<nn;j++)
+	{
+	    printf("\nEnter the value of %d neighbour of %d",j+1,i+1);
+	    scanf("%d",&val);
+	    newnode=(struct node *)malloc(sizeof(struct node));
+	    newnode->data=val;
+	    newnode->next=0;
+	    if(adj[i]==0)
+		adj[i]=newnode;
+	    else
+		last->next=newnode;
+	    last=newnode;
+	}
+    }
+}
+void main()
+{
+    int i,j,k,nodes;
+    struct node *adj[100];
+    printf("\nEnter the nodes:");
+    scanf("%d",&nodes);
+    //struct node *adj[nodes];
+    for(i=0;i<nodes;i++)
+	adj[i]=0;
+    read_graph(adj,nodes);
+    show_graph(adj,nodes);
+}

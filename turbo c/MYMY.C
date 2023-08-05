@@ -1,0 +1,40 @@
+#include<stdio.h>
+#define n 5
+#define m 4
+void main(){
+    int a[]={2,3,5,7},b[]={1,12,13,14,20},c[m+n],i,j,k;
+    i=j=k=0;
+    clrscr();
+    while (k<m+n)
+    {
+	if(i<m && a[i]<b[j]){
+	    c[k]=a[i];
+	    i++;
+	    k++;
+	}
+	else if(j<n && b[j]<=a[i])
+	{
+	    c[k]=b[j];
+	    j++;
+	    k++;
+	}
+	if(i==m || j == n)
+	break;
+
+    }
+    while(i<m)
+    {
+	c[k]=a[i];
+	k++;
+	i++;
+    }
+    while(j<n)
+    {
+	c[k]=b[j];
+	k++;
+	j++;
+    }
+    printf("\n");
+    for(i=0;i<m+n;i++)
+    printf("%d\t",c[i]);
+}

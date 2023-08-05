@@ -1,0 +1,22 @@
+void main()
+{
+	int a;
+	clrscr();
+	printf("Enter a number: ");
+	scanf("%d",&a);
+	switch(a)
+	{
+		case 1:
+		printf("One");
+		break;
+		case 2:
+		printf("Two");
+		break;
+		case 3:
+		printf("Three");
+		break;
+		default:
+		printf("Wrong input");
+	}
+	getch();
+}

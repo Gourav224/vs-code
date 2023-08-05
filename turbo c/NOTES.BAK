@@ -1,0 +1,60 @@
+void main()
+{
+	int amt,temp,notes;
+	clrscr();
+	printf("Enter amount to split into the notes: ");
+	scanf("%d",&amt);
+	temp=amt;
+	// notes are: 2000,500,200,100,50,20,10,5,2,1
+	if(temp>2000)
+	{
+		printf("2000 x %d\n",temp/2000);
+		temp %= 2000;
+	}
+	if(temp>500)
+	{
+		printf("500 x %d\n",temp/500);
+		temp %= 500;
+	}
+	if(temp>200)
+	{
+		printf("200 x %d\n",temp/200);
+		temp %= 200;
+	}
+	if(temp>100)
+	{
+		printf("100 x %d\n",temp/100);
+		temp %= 100;
+	}
+	if(temp>50)
+	{
+		printf("50 x %d\n",temp/50);
+		temp %= 50;
+	}
+	if(temp>20)
+	{
+		printf("20 x %d\n",temp/20);
+		temp %= 20;
+	}
+	if(temp>10)
+	{
+		printf("10 x %d\n",temp/10);
+		temp %= 10;
+	}
+	if(temp>5)
+	{
+		printf("5 x %d\n",temp/5);
+		temp %= 5;
+	}
+	if(temp>2)
+	{
+		printf("2 x %d\n",temp/2);
+		temp %= 2;
+	}
+	if(temp>1)
+	{
+		printf("1 x %d\n",temp/1);
+		//temp %= 1;
+	}
+	getch();
+}

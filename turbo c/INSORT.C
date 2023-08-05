@@ -1,0 +1,38 @@
+#define n 13
+#define opr >   //for ascending order
+#define op <    //for descending order
+void insort(int *a)
+{
+	int i,temp,j;
+	for(i=1;i<n;i++)
+	{
+		temp=a[i];
+		j=i-1;
+		while(j>=0 && a[j] > temp)
+		{
+			a[j+1]=a[j];
+			j--;
+		}
+		a[j+1]=temp;
+	}
+}
+#include<stdlib.h>
+void main()
+{
+	int ar[n],i;
+	clrscr();
+	randomize();
+	printf("\nUnsorted Array is: \n");
+	textcolor(4);
+	for(i=0;i<n;i++)
+	{
+		ar[i]=random(20);
+		cprintf("%d ",ar[i]);
+	}
+	textcolor(10);
+	insort(ar);
+	printf("\nSorted Array is : \n");
+	for(i=0;i<n;i++)
+		cprintf("%d ",ar[i]);
+	getch();
+}

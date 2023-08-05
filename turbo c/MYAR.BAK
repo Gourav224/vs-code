@@ -1,0 +1,27 @@
+#include<stdlib.h>
+#define M 50
+void main()
+{
+	int a[M],size=10,n=100,i;
+	clrscr();
+	randomize();
+	printf(" Array is : \n");
+
+	for(i=0;i<size;i++)
+	{
+		a[i]=random(90);
+		printf("\t%d",a[i]);
+	}
+	size++;
+	for(i=0;i<size;i++)
+	{
+		a[size-i+1]=a[size-i];
+	}
+	a[size-i]=n;
+	printf("\nNew array is : \n");
+	for(i=0;i<size;i++)
+	{
+		printf("\t%d",a[i]);
+	}
+	getch();
+}

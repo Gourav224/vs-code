@@ -1,0 +1,53 @@
+int bsearch(int a[],int n,int data)
+{
+	int l=0,r=n-1,mid;
+
+	while(l<=r)
+	{
+		mid=(l+r)/2;
+		if(data==a[mid])
+			return mid;
+		else if(data<a[mid])
+			r=mid-1;
+		else
+			l=mid+1;
+	}
+	return -1;
+}
+void bubsort(int a[],int n)
+{
+	int i,j;
+
+	clrscr();
+	for(i=0;i<n-1;i++)
+	{
+		for(j=0;j<n-1;j++)
+		{
+			if(a[i]>a[i+1])
+			{
+				int t=a[i];
+				a[i]=a[i+1];
+				a[i+1]=t;
+			}
+		}
+		printf("  %d ",a[i]);
+
+	}
+}
+void main()
+{
+	int i,f,n,a[50];
+	clrscr();
+	printf("Enter the size of array: ");
+	scanf("%d",&n);
+	printf("\n Enter %d elements in array : ");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	bubsort(a,n-1);
+	f=bsearch(a,n-1,12);
+	if(f<0)
+		printf("Data not found....");
+	else
+		printf("Data found at %d",f);
+	getch();
+}

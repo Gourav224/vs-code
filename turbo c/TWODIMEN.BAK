@@ -1,0 +1,16 @@
+void main()
+{
+	char *str[20];
+	int i;
+	clrscr();
+	for(i=0;i<5;i++)
+		gets(str[i]);
+
+	for(i=0;i<5;i++)      {
+		puts(str[i]);
+		puts("\n");
+	}
+	getch();
+
+
+}

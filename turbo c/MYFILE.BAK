@@ -1,0 +1,8 @@
+void main()
+{
+	int a=1,b=2;
+	clrscr();
+	if(++a > b++  && ++a < b--);
+	printf("a = %d, b = %d",a,b);
+	getch();
+}

@@ -1,0 +1,169 @@
+
+#include<stdlib.h>
+#include<dos.h>
+
+
+/*
+void main()
+{
+	int a;
+	clrscr();
+	randomize();
+	random(6)+1;
+	while(!kbhit())
+	{
+		a=random(9)+1;
+		printf("%d",a);
+		//delay(50);
+		printf("\b");
+		//delay(1);
+	}
+	printf("%d",a);
+	getch();
+	getch();
+
+}
+*/
+
+
+/*
+//Random function....
+
+
+void main()
+{
+	int a;
+	clrscr();
+	randomize();
+	a=random(100)+1;      // 0-99
+	printf("Random number is %d",a);
+	getch();
+}
+*/
+
+
+/*
+//leap year program....
+void main()
+{
+	int y;
+	clrscr();
+	printf("Enter Year: ");
+	scanf("%d",&y);
+	if(y%100==0 )// (y%400==0))
+	{
+		if(y%400==0)
+			printf("Leap Year\n");
+		else
+			printf("Not a leap year");
+	}
+	else
+	{
+		if(y%4==0)
+			printf("Leap Year\n");
+		else
+			printf("Not a leap year");
+	}
+	getch();
+}
+  */
+/*
+//calculate the Grade
+void main()
+{
+	int h,e,m,c,s,total;
+	float per;
+	clrscr();
+	printf("Enter Marks of Hindi, Eng, Maths, Computer, Sci : ",h,e,m,c,s);
+	scanf("%d%d%d%d%d",&h,&e,&m,&c,&s);
+	total=h+e+m+c+s;
+	per=(float)total/5;
+	printf("Total Marks %d out 500\nPercentage %.2f\n",total,per);
+	if(per>90)
+		printf("A");
+	else if(per>80)
+		printf("B");
+	else if(per>70)
+		printf("C");
+	else if(per>60)
+		printf("D");
+	else if(per>50)
+		printf("E");
+	else
+		printf("Fail");
+	getch();
+}
+*/
+
+
+// case of characters
+/*
+
+void main()
+{
+	char ch;
+	clrscr();
+	printf("Enter a character : ");
+	scanf("%c",&ch);
+	printf("%d",ch);
+	getch();
+}
+*/
+
+// getch() function....
+
+/*
+void main()
+{
+	char ch;
+	clrscr();
+	ch=getch();
+	printf("pressed key = %c\t ASCII is %d",ch,ch);
+	printf("");
+	getch();
+}
+*/
+
+
+//if else programs
+/*
+void main()
+{
+
+	int a,b,c,d;
+	clrscr();
+	printf("Enter three numbers: ");
+	scanf("%d%d%d",&a,&b,&c);
+	if(a>b)
+	{
+		if(a>c)
+			d=a;
+		else
+			d=c;
+
+	}
+	else
+	{
+		if(b>c)
+			d=b;
+		else
+			d=c;
+	}
+	printf("Greater number is = %d",d);
+	getch();
+
+}  */
+
+/*
+void main()
+{
+	int a,b,c,d;
+	clrscr();
+	a=(10,20,30,40);  //Stack -> LIFO
+	b=10,20,30,40;    //Queue -> FIFO
+
+	if(a<b,a>b)
+		printf("a=%d,b=%d",a,b);
+	getch();
+
+} */

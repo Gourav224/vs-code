@@ -1,0 +1,11 @@
+void main()
+{
+	int a[]={2,30,5,7,8},*p,*q,i=0;
+	clrscr();
+	p=a+1;
+
+	q=p+1;
+	printf("%d %d %d",*p,*q,*q);
+	getch();
+
+}

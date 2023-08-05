@@ -1,0 +1,42 @@
+
+void main()
+/*
+{
+	int i,n;
+	clrscr();
+	printf("Table of 1 to 20 \n");
+	for(n=1;n<=10;n++)
+	{	for(i=1;i<=10;i++)
+		{
+		n=n*i;
+		printf("%d ",n*i);
+		}
+		printf("\n");
+
+	}
+	getch();
+	  */
+
+{
+    int i,j;
+    clrscr();
+    for(i=0;i<=4;i++)
+    {
+	for(j=1;j<=5-i;j++)
+	printf("* ");
+	for(j=1;j<=2*i-1;j++)
+	printf("  ");
+       //	for(j=1;j<=i;j++)
+       //	printf("  ");
+	for(j=1;j<=5-i;j++)
+	printf("* ");
+	printf("\n");
+
+
+
+    }
+    getch();
+}
+
+
+

@@ -1,0 +1,9 @@
+void main()
+{
+	int b;
+	clrscr();
+	for(b=100;b>1;b--)
+	{ printf("%d ", b);
+	}
+	getch();
+}

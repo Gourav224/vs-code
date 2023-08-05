@@ -1,0 +1,29 @@
+struct node
+{
+	int data;
+	struct node *next;
+};
+struct node *head=0,*rear=0,*newnode;
+
+void display(){
+	//while(head!=0)
+		printf("%d\t",head->data);
+}
+
+
+void create_node()
+{
+	newnode=(struct node*)calloc(sizeof(newnode));
+	printf("Enter data for node: ");
+	scanf("%d",&newnode->data);
+	newnode->next=0;
+
+	head=rear=newnode;
+	display();
+}
+void main()
+{
+	clrscr();
+	create_node();
+	getch();
+}

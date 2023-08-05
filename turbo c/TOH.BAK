@@ -1,0 +1,37 @@
+#include <stdio.h>
+void toh(int d, char beg, char temp, char end)
+{
+	if(d>=1)
+	{
+		printf("\nMove disk %d from %c to %c",d,beg,end);
+		toh(d-1,beg,end,temp);
+		printf("\nMove disk %d from %c to %c",d,beg,end);
+		toh(d-1,temp,beg,end);
+	}
+}
+void main()
+{
+	int disks=3;
+	clrscr();
+	toh(d,'A','B','C');
+	getch();
+}
+
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
+{
+	if (n == 1)
+	{
+		printf("\n Move disk 1 from rod %c to rod %c", from_rod, to_rod);
+		return;
+	}
+	towerOfHanoi(n-1, from_rod, audx_rod, to_rod);
+	printf("\n Move disk %d from rod %c to rod %c", n, from_rod, to_rod);
+	towerOfHanoi(n-1, aux_rod, to_rod, from_rod);
+}
+
+int main()
+{
+	int n = 4; // Number of disks
+	towerOfHanoi(n, 'A', 'C', 'B'); // A, B and C are names of rods
+	return 0;
+}

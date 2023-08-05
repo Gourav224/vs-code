@@ -1,0 +1,61 @@
+#include<stdlib.h>
+#include<dos.h>
+void main()
+{    	int a;
+	clrscr();
+	randomize();
+	random(13242);
+	while(!kbhit())
+	{  a=random(a)+1;
+	printf("%d",a);
+	delay(6570);
+	printf("\b");
+	delay(1);
+	}
+	printf("%d",a);
+	getch();
+	getch();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+void main()
+{
+	int i;
+
+	do
+	{
+	clrscr();
+	randomize();
+	i=random(1098);
+	printf("Random number is %d",i);
+	printf("\nfor print again random number press 1 or for exit press 0 \n");
+	scanf("%d",&i);
+	} while(i==1);
+  }
+  */
+

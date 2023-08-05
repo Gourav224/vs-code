@@ -1,0 +1,51 @@
+#include<stdlib.h>
+void main()
+{
+	int a[5][5],i,j,f=0;
+	int n;
+	clrscr();
+	randomize();
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			a[i][j]=random(20);    // replace scanf by random function
+		}
+	}
+
+	//Number to be search in matrix
+	printf("Enter a number to be find in the matrix: ");
+	scanf("%d",&n);
+
+	//Matrix printing
+	printf("\nMatrix is \n");
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			printf("%d\t",a[i][j]);
+		}
+		printf("\n");
+	}
+
+	//Logic
+
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(a[i][j]==n)
+			{
+				f=1;
+				break;
+			}
+		}
+		if(f==1)
+			break;
+	}
+	if(f==1)
+		printf("\n%d found at Matrix[%d][%d]",n,i,j);
+	else
+		printf("\n%d not found",n);
+	getch();
+}

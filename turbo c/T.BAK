@@ -1,0 +1,8 @@
+void main()
+{
+	long a;
+	clrscr();
+	a=300*300/300;
+	printf("%ld",a);
+	getch();
+}

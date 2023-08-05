@@ -1,0 +1,29 @@
+#include<stdlib.h>
+#define size 50
+void main()
+{
+	int a[size],i,f=0,n;
+	clrscr();
+	randomize();
+	for(i=0;i<size;i++)
+	{
+		a[i]=random(50);
+		printf("%d ",a[i]);
+	}
+	printf("\nEnter a number to be search in array:\n");
+	scanf("%d",&n);
+	for(i=0;i<size;i++)
+	{
+		if(a[i]==n)
+		{
+			f=1;
+			break;
+		}
+	}
+	if(f==1)
+		printf("Element found at pos: %d",i);
+	else
+		printf("Element not found");
+
+	getch();
+}

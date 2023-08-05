@@ -1,0 +1,17 @@
+void main()
+{
+	int t,a[]={40,30,6,7,8,3},i,j,min,n=6;
+	clrscr();
+	for(i=0;i<n-1;i++)
+	{
+		min=i;
+		for(j=i+1;j<n;j++)
+		{	if(a[j]<a[min])
+			{	min=j;
+			}
+		}
+	for(i=0;i<=n-i;i++)
+		printf("\t%d",a[i]);
+	getch();
+
+}

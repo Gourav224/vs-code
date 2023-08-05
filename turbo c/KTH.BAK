@@ -1,0 +1,18 @@
+/*
+Kth smallest element in array
+array.h include gen_array(array, size) for new array
+		print_array(array, size) to print the array
+
+*/
+
+#include"array.h"
+
+
+#define size 20
+void main(){
+	int a[size],k=13,i;
+	clrscr();
+	gen_array(a,size);
+	printf_array(a,size);
+	getch();
+}
