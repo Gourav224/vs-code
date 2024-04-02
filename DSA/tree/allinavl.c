@@ -1,84 +1,96 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct node 
+#include <stdio.h>
+#include <stdlib.h>
+struct node
 {
-    int data,height;
-    struct node *left,*right;
+    int data, height;
+    struct node *left, *right;
 };
-#define maximum(a,b) a<b?b:a
+#define maximum(a, b) a < b ? b : a
+
+// int hot(struct node *root)
+// {
+//     if (root==0)
+//         return 0;
+//     printf("%d ", root->data);
+
+//     return maximum(hot(root->right), hot(root->left)) + 1;
+// }
 int hot(struct node *root)
 {
-    if(!root)
+    if (root == 0)
+    {
         return 0;
-    return maximum(hot(root->right),hot(root->left))+1;
+    }
+    printf( "%d ", root ->data);
+    return  maximum(hot(root->left),hot(root->right)) +1 ;
 }
-//rotation of tree
+// rotation of tree
 struct node *leftrotate(struct node *root)
 {
-    struct node *x=root->right;
-    struct node *y=x->left;
-    x->left=root;
-    root->right=y;
+    struct node *x = root->right;
+    struct node *y = x->left;
+    x->left = root;
+    root->right = y;
     return x;
 }
 struct node *rightrotate(struct node *root)
 {
-    struct node *x=root->left;
-    struct node *y=x->right;
-    x->right=root;
-    root->left=y;
+    struct node *x = root->left;
+    struct node *y = x->right;
+    x->right = root;
+    root->left = y;
     return x;
 }
 // create node
 struct node *createnode(int data)
 {
-    struct node *node=(struct node *)malloc(sizeof(struct node));
-    node->data=data;
-    node->right=node->left=0;
+    struct node *node = (struct node *)malloc(sizeof(struct node));
+    node->data = data;
+    node->right = node->left = 0;
     return node;
 }
 // balace checking
 int getbalance(struct node *root)
 {
-    return hot(root->left)-hot(root->right);
+    return hot(root->left) - hot(root->right);
 }
-//struct tree
-struct node *createbst(struct node *root,int data)
+// struct tree
+struct node *createbst(struct node *root, int data)
 {
-    if (root==0)
+    if (root == 0)
     {
         return createnode(data);
     }
-    else if (data>root->data)
+    else if (data > root->data)
     {
-        root->right=createbst(root->right,data);
+        root->right = createbst(root->right, data);
     }
-    else if (root->data>data)
+    else if (root->data > data)
     {
-        root->left=createbst(root->left,data);
+        root->left = createbst(root->left, data);
     }
-    else
-    {
-        return root;
-    }
-    root->height=hot(root);
-    int balance=getbalance(root);
-    if (balance > 1 && data < root->left->data) //LL
+    // else
+    // {
+    //     return root;
+    // }
+    root->height = hot(root);
+    int balance = getbalance(root);
+    if (balance > 1 && data < root->left->data) // LL
     {
         return rightrotate(root);
     }
-    else if (balance < -1 && data > root->right->data)//RL
+    else if (balance < -1 && data > root->right->data) // RL
     {
         return leftrotate(root);
     }
-    else if (balance > 1 && data > root->left->data)//LR
+    else if (balance > 1 && data > root->left->data) // LR
     {
-        root->left=leftrotate(root->left);
+        root->left = leftrotate(root->left);
         return rightrotate(root);
     }
-    else if (balance < -1 && data < root->right->data)//Rl
+    else if (balance < -1 && data < root->right->data) // Rl
     {
-        root->right=rightrotate(root->right);
+        root->right = rightrotate(root->right);
         return leftrotate(root);
     }
     else
@@ -88,96 +100,95 @@ struct node *createbst(struct node *root,int data)
 }
 void preorder(struct node *root)
 {
-    if (root==0)
+    if (root == 0)
     {
-        return ;
+        return;
     }
-    printf(" %d",root->data);
+    printf(" %d", root->data);
     preorder(root->left);
     preorder(root->right);
 }
 void postorder(struct node *root)
 {
-    if(root==0)
+    if (root == 0)
     {
         return;
     }
     postorder(root->left);
     postorder(root->right);
-    printf(" %d",root->data);
+    printf(" %d", root->data);
 }
 void inorder(struct node *root)
 {
-    if(root==0)
+    if (root == 0)
     {
         return;
     }
     inorder(root->left);
-    printf(" %d",root->data);
+    printf(" %d", root->data);
     inorder(root->right);
 }
 int sum(struct node *root)
 {
-    if (root==0)
+    if (root == 0)
     {
         return 0;
     }
-    return sum(root->right)+sum(root->left)+root->data;    
+    return sum(root->right) + sum(root->left) + root->data;
 }
 int dot(struct node *root)
 {
-    if (root==0)
+    if (root == 0)
     {
         return 0;
     }
-    int cdia=hot(root->left)+hot(root->right)+1;
-    return maximum(maximum(cdia,dot(root->right)),dot(root->left));
-    
+    int cdia = hot(root->left) + hot(root->right) + 1;
+    return maximum(maximum(cdia, dot(root->right)), dot(root->left));
 }
 struct node *q[100];
-int f=-1,r=-1;
+int f = -1, r = -1;
 void enqueue(struct node *root)
 {
-    if (r==-1)
+    if (r == -1)
     {
-        f=r=0;
-        q[f]=root;
+        f = r = 0;
+        q[f] = root;
     }
     else
     {
-        q[++r]=root;
+        q[++r] = root;
     }
 }
 void dequeue()
 {
-    if (f==r)
+    if (f == r)
     {
-        f=r=-1;
+        f = r = -1;
     }
     else
     {
         f++;
-    }    
+    }
 }
 void levelview(struct node *root)
 {
     enqueue(0);
     enqueue(root);
-    while (f!=-1)
+    while (f != -1)
     {
-        root=q[f];
+        root = q[f];
         dequeue();
-        if (root==0)
+        if (root == 0)
         {
-            if (f==-1)
+            if (f == -1)
             {
-                return ;
+                return;
             }
             printf("\n");
             enqueue(0);
             continue;
         }
-        printf(" %d ",root->data);
+        printf(" %d ", root->data);
         if (root->left)
         {
             enqueue(root->left);
@@ -192,19 +203,19 @@ void leftview(struct node *root)
 {
     enqueue(0);
     enqueue(root);
-    while (f!=-1)
+    while (f != -1)
     {
-        root=q[f];
+        root = q[f];
         dequeue();
-        if (root==0)
+        if (root == 0)
         {
-            if (f==-1)
+            if (f == -1)
             {
                 return;
             }
-            root=q[f];
+            root = q[f];
             dequeue();
-            printf("\n%d",root->data);
+            printf("\n%d", root->data);
             enqueue(0);
         }
         if (root->left)
@@ -215,25 +226,25 @@ void leftview(struct node *root)
         {
             enqueue(root->right);
         }
-    }   
+    }
 }
 void rightview(struct node *root)
 {
     enqueue(0);
     enqueue(root);
-    while (f!=-1)
+    while (f != -1)
     {
-        root=q[f];
+        root = q[f];
         dequeue();
-        if (root==0)
+        if (root == 0)
         {
-            if (f==-1)
+            if (f == -1)
             {
                 return;
             }
-            root=q[f];
+            root = q[f];
             dequeue();
-            printf("\n%d",root->data);
+            printf("\n%d", root->data);
             enqueue(0);
         }
         if (root->right)
@@ -244,143 +255,143 @@ void rightview(struct node *root)
         {
             enqueue(root->left);
         }
-    }   
+    }
 }
 int maparray[100];
 void topview(struct node *root)
 {
-    int size=hot(root);
-    for (int i = 0; i < 2*size; i++)
+    int size = hot(root);
+    for (int i = 0; i < 2 * size; i++)
     {
-        maparray[i]=-1;
+        maparray[i] = -1;
     }
-    root->height=size;
+    root->height = size;
     enqueue(root);
-    while (f!=-1)
+    while (f != -1)
     {
-        root=q[f];
+        root = q[f];
         dequeue();
-        if (maparray[root->height]==-1)
+        if (maparray[root->height] == -1)
         {
-            maparray[root->height]=root->data;
+            maparray[root->height] = root->data;
         }
         if (root->left)
         {
-            root->left->height=root->height-1;
+            root->left->height = root->height - 1;
             enqueue(root->left);
         }
         if (root->right)
         {
-            root->right->height=root->height+1;
+            root->right->height = root->height + 1;
             enqueue(root->right);
         }
     }
-    for (int i = 0; i < 2*size; i++)
+    for (int i = 0; i < 2 * size; i++)
     {
-        if (maparray[i]!=-1)
+        if (maparray[i] != -1)
         {
-            printf(" %d",maparray[i]);
+            printf(" %d", maparray[i]);
         }
     }
 }
 void bottamview(struct node *root)
 {
-    int count=hot(root);
-    for (int i = 0; i <2* count; i++)
+    int count = hot(root);
+    for (int i = 0; i < 2 * count; i++)
     {
-        maparray[i]=-1;
+        maparray[i] = -1;
     }
     enqueue(root);
-    root->height=count;
-    while (f!=-1)
+    root->height = count;
+    while (f != -1)
     {
-        root=q[f];
+        root = q[f];
         dequeue();
-        maparray[root->height]=root->data;
+        maparray[root->height] = root->data;
         if (root->left)
         {
-            root->left->height=root->height-1;
+            root->left->height = root->height - 1;
             enqueue(root->left);
         }
         if (root->right)
         {
-            root->right->height=root->height+1;
+            root->right->height = root->height + 1;
             enqueue(root->right);
         }
     }
-    for (int i = 0; i <2* count; i++)
+    for (int i = 0; i < 2 * count; i++)
     {
-        if (maparray[i]!=-1)
+        if (maparray[i] != -1)
         {
-            printf(" %d",maparray[i]);
+            printf(" %d", maparray[i]);
         }
     }
 }
-int n=0;
-//deletion of node 
+int n = 0;
+// deletion of node
 struct node *leftmostinright(struct node *root)
 {
-    while (root->left!=0)
+    while (root->left != 0)
     {
-        root=root->left;
+        root = root->left;
     }
-    return root;    
+    return root;
 }
-struct node *deletenode(struct node *root,int key)
+struct node *deletenode(struct node *root, int key)
 {
-    if (root==0)
+    if (root == 0)
     {
         return 0;
     }
-    if (root->data<key)
+    if (root->data < key)
     {
-        root->right=deletenode(root->right,key);
+        root->right = deletenode(root->right, key);
     }
-    else if (root->data>key)
+    else if (root->data > key)
     {
-        root->left=deletenode(root->left,key);
+        root->left = deletenode(root->left, key);
     }
-    else if (root->data=key)
+    else if (root->data = key)
     {
-        n=1;
+        n = 1;
         struct node *temp;
-        if (root->right==0)
+        if (root->right == 0)
         {
-            temp=root->left;
+            temp = root->left;
             free(root);
             return temp;
         }
-        if (root->left==0)
+        if (root->left == 0)
         {
-            temp=root->right;
+            temp = root->right;
             free(root);
             return temp;
         }
-        temp=leftmostinright(root->right);
-        root->data=temp->data;
-        root->right=deletenode(root->right,temp->data);        
+        temp = leftmostinright(root->right);
+        root->data = temp->data;
+        root->right = deletenode(root->right, temp->data);
     }
     else
-        return root;    
-    
-        root->height=hot(root);
-    int balance=getbalance(root);
-    if (balance > 1 && root->data < root->left->data) //LL
+        return root;
+
+    root->height = hot(root);
+    int balance = getbalance(root);
+    if (balance > 1 && root->data < root->left->data) // LL
     {
         return rightrotate(root);
     }
-    else if (balance < -1 && root->data > root->right->data)//RL
+    else if (balance < -1 && root->data > root->right->data) // RL
     {
         return leftrotate(root);
     }
-    else if (balance > 1 && root->data > root->left->data)//LR
+    else if (balance > 1 && root->data > root->left->data) // LR
     {
-        root->left=leftrotate(root->left);
+        root->left = leftrotate(root->left);
         return rightrotate(root);
     }
-    else if (balance < -1 && root->data < root->right->data)//Rl
+    else if (balance < -1 && root->data < root->right->data) // Rl
     {
-        root->right=rightrotate(root->right);
+        root->right = rightrotate(root->right);
         return leftrotate(root);
     }
     else
@@ -390,85 +401,85 @@ struct node *deletenode(struct node *root,int key)
 }
 int main()
 {
-    struct node *root=0;
-    int a[]={1,2,3,4,6,78,9,10};
-    int count=sizeof(a)/sizeof(a[0]),ch;
+    struct node *root = 0;
+    // int a[]={1,2,3,4,6,78,9,10};
+    int a[] = {3, 2, 1};
+    int count = sizeof(a) / sizeof(a[0]), ch;
     while (1)
     {
         printf("\nselect one option\n1 create bst\t2 data of root\n3 Inorder\t4 preorder\n5 postorder\t6 height\n7 diameter\t8 sum\n9 levelview\t10 left view\n11 rightview\t12 topview\n13 bottam view\t14 Deletion \n 0 exit\n");
-        scanf("%d",&ch);
+        scanf("%d", &ch);
         switch (ch)
         {
         case 1:
             for (int i = 0; i < count; i++)
             {
-                root=createbst(root,a[i]);
+                root = createbst(root, a[i]);
             }
             break;
         case 2:
-        printf("\nData of root %d",root->data);
-        break;
+            printf("\nData of root %d", root->data);
+            break;
         case 3:
-        printf("\nInorder of tree\n");
-        inorder(root);
-        break;
+            printf("\nInorder of tree\n");
+            inorder(root);
+            break;
         case 4:
-        printf("\nPreorder of tree\n");
-        preorder(root);
-        break;
+            printf("\nPreorder of tree\n");
+            preorder(root);
+            break;
         case 5:
-        printf("\nPost order of tree \n");
-        postorder(root);
-        break;
+            printf("\nPost order of tree \n");
+            postorder(root);
+            break;
         case 6:
-        printf("\nHeight of tree is %d ",hot(root));
-        break;
+            printf("\nHeight of tree is %d ", hot(root));
+            break;
         case 7:
-        printf("\nDiameter of tree is %d ",dot(root));
-        break;
+            printf("\nDiameter of tree is %d ", dot(root));
+            break;
         case 8:
-        printf("\nsum of all nodes is %d \n",sum(root));
-        break;
+            printf("\nsum of all nodes is %d \n", sum(root));
+            break;
         case 9:
-        printf("\nlevel view of tree \n");
-        levelview(root);
-        break;
+            printf("\nlevel view of tree \n");
+            levelview(root);
+            break;
         case 10:
-        printf("\nLeft view of tree\n");
-        leftview(root);
-        break;
+            printf("\nLeft view of tree\n");
+            leftview(root);
+            break;
         case 11:
-        printf("\nright view of tree\n");
-        rightview(root);
-        break;
+            printf("\nright view of tree\n");
+            rightview(root);
+            break;
         case 12:
-        printf("\nTop view of tree\n");
-        topview(root);
-        break;
+            printf("\nTop view of tree\n");
+            topview(root);
+            break;
         case 13:
-        printf("\nBottam view of tree\n");
-        bottamview(root);
-        break;
+            printf("\nBottam view of tree\n");
+            bottamview(root);
+            break;
         case 14:
-        printf("\nEnter data for deletion : ");
-        scanf("%d",&ch);
-        root=deletenode(root,ch);
-        if (n==0)
-        {
-            printf("\nNode not found\n");
-        }
-        else
-        {
-            printf("\nDeletion sucessful\n");
-        }        
-        break;
+            printf("\nEnter data for deletion : ");
+            scanf("%d", &ch);
+            root = deletenode(root, ch);
+            if (n == 0)
+            {
+                printf("\nNode not found\n");
+            }
+            else
+            {
+                printf("\nDeletion sucessful\n");
+            }
+            break;
         case 0:
-        exit(0);
-        break;
+            exit(0);
+            break;
         default:
-        printf("\n****Wrong Choice****\n");
+            printf("\n****Wrong Choice****\n");
             break;
         }
     }
-    
 }
